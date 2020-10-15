@@ -1,21 +1,25 @@
-def game():
-    my_hp = 1000
-    my_power = 200
-    your_hp = 1000
-    your_power = 199
-    my_final_hp = my_hp - your_power
-    enemy_hp = your_hp - my_power
+class game():
+    def __init__(self):
+        self.my_hp = 1000
+        self.my_power = 200
+        self.your_hp = 1000
+        self.your_power = 199
 
-    print("You Win") if my_final_hp > enemy_hp else print("You lose")
-    while True:
-        my_hp = my_final_hp - your_power
-        your_hp = your_hp - my_power
-        if my_hp <= 0:
-            print("You win")
-            break
-        elif your_hp <= 0:
-            print("You lose")
-            break
+class sub(game):
+    def __init__(self,defense):
+        self.defense=defense
+        super(sub, self).__init__()
 
+    def fight(self):
+        while True:
+            self.my_hp = self.my_hp+self.defense - self.your_power
+            self.your_hp = self.your_hp - self.my_power
+            if self.my_hp <= 0:
+                print("You win")
+                break
+            elif self.your_hp <= 0:
+                print("I win")
+                break
 
-game()
+xx=sub(5)
+xx.fight()
