@@ -10,5 +10,5 @@ class MainPage(BasePage):
         return ContactPage(self.driver)
 
     def go_to_add_member(self):
-        self.driver.find_element(By.CSS_SELECTOR,"[node-type='addmember']").click()
+        self.driver.find_element(By.CSS_SELECTOR, "[node-type='addmember']").click()
         return AddMember(self.driver)
